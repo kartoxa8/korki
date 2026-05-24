@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-labelledby="title desc">
+  <title id="title">Базы данных</title>
+  <desc id="desc">Декоративное изображение для слайдера курса баз данных.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7b2d3e"/>
+      <stop offset="1" stop-color="#eebcc4"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="720" fill="url(#bg)"/>
+  <rect x="92" y="96" width="776" height="528" rx="54" fill="#fff" opacity=".22" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+  <ellipse cx="480" cy="420" rx="270" ry="62" fill="#fff" opacity=".16"/>
+  <path d="M210 420v92c0 34 121 62 270 62s270-28 270-62v-92" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="6"/>
+  <ellipse cx="480" cy="420" rx="270" ry="62" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="6"/>
+  <text x="150" y="270" fill="#fff" font-family="Arial, sans-serif" font-size="54" font-weight="800">Базы данных</text>
+  <text x="153" y="330" fill="#fff4f6" font-family="Arial, sans-serif" font-size="28">структура и надежность</text>
+</svg>
