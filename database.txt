@@ -1,0 +1,37 @@
+-- База данных портала "Корочки.есть"
+-- Импортируйте файл в MySQL, затем проверьте параметры подключения в config.php.
+
+CREATE DATABASE IF NOT EXISTS korki_portal
+    CHARACTER SET utf8mb4
+    COLLATE utf8mb4_unicode_ci;
+
+USE korki_portal;
+
+CREATE TABLE IF NOT EXISTS users (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    login VARCHAR(50) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    full_name VARCHAR(150) NOT NULL,
+    phone VARCHAR(20) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS applications (
+    id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    user_id INT UNSIGNED NOT NULL,
+    course_name ENUM(
+        'Основы алгоритмизации и программирования',
+        'Основы веб-дизайна',
+        'Основы проектирования баз данных'
+    ) NOT NULL,
+    start_date DATE NOT NULL,
+    payment_method ENUM('cash', 'transfer') NOT NULL,
+    status ENUM('new', 'in_progress', 'completed') NOT NULL DEFAULT 'new',
+    review TEXT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    CONSTRAINT fk_applications_user
+        FOREIGN KEY (user_id) REFERENCES users(id)
+        ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
